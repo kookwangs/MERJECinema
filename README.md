@@ -9,8 +9,8 @@
   - adding booking payment point to client
   - adding concession payment and adding point to client
  
- <br/>
-**and it also has advanced analysis report**
+
+**<br/>and it also has advanced analysis report**
   - show summary about booking before payment
   - show daily income from booking payment of each branch
   - show monthly income from booking payment of each movie
