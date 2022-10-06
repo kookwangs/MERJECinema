@@ -8,7 +8,6 @@
   - showing details of booking
   - adding booking payment point to client
   - adding concession payment and adding point to client
-<br/>
 **<br/>and it also has advanced analysis report**
   - show summary about booking before payment
   - show daily income from booking payment of each branch
