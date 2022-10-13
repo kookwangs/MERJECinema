@@ -153,11 +153,6 @@
                     $row = mysqli_fetch_assoc($result);
                                 
             echo "<option value =\"".$row["BranchID"]."\" selected>".$row["BranchName"]."</option>";
-                            
-                        
-         
-         
-         
         ?>
             
                 <i class="fas fa-angle-down"></i>
@@ -200,27 +195,16 @@
           <div class="grid-item">Total seats</div>
           <div class="grid-item">Income from movie tickets</div> 
           <!--1st row-->
-       <?php
-       
-       $con=mysqli_connect("localhost","a5_test1","merje5","a5_test1");
-      
-         $dropbtn3 = mysqli_real_escape_string($con, $_POST['dropbtn3']);
-         
-         $sql2 = "SELECT BranchName, BranchID FROM Branch WHERE BranchID='$dropbtn3'";
-                $result2 = mysqli_query($con, $sql2);
-
-                    $row2 = mysqli_fetch_assoc($result2);
-       
-       $daterange = mysqli_real_escape_string($con, $_POST['daterange']);
-       
-        
-    $startdate = substr($daterange,0,10);
-   
-  
+<?php  
+  $con=mysqli_connect("localhost","a5_test1","merje5","a5_test1");
+  $dropbtn3 = mysqli_real_escape_string($con, $_POST['dropbtn3']); 
+  $sql2 = "SELECT BranchName, BranchID FROM Branch WHERE BranchID='$dropbtn3'";
+  $result2 = mysqli_query($con, $sql2);
+  $row2 = mysqli_fetch_assoc($result2);
+  $daterange = mysqli_real_escape_string($con, $_POST['daterange']);    
+  $startdate = substr($daterange,0,10); 
   $newstartdate=date("Y-m-d", strtotime($startdate));  
- 
-       
-       
+  
     $sql = "SELECT COUNT(*) AS A,SUM(SeatType.SeatPrice+TheaterType.TopUpPrice) AS B FROM Payment, BookingSeat, Booking, Seat, SeatType, Theater, TheaterType 
      WHERE Payment.BookingID = BookingSeat.BookingID 
      AND BookingSeat.BookingID = Booking.BookingID 
@@ -233,11 +217,8 @@
      AND Payment.PaymentStatus='1'
      AND Theater.BranchID = '$dropbtn3';";
    
- $result = mysqli_query($con, $sql);
-
-        
-$row = mysqli_fetch_assoc($result);                           
-
+  $result = mysqli_query($con, $sql);
+  $row = mysqli_fetch_assoc($result);                           
 
 //$row["B"] is a total price but not minus with discount
 
